@@ -42,7 +42,7 @@ void setup()
     analogWrite(greenPin, 255);
     analogWrite(bluePin, 255);
 
-    Serial.begin(9600); // Default baud rate of BT module
+    Serial.begin(9600); // Default baud rate of BT module 
 }
 
 // ---------------------------------------------------------------
@@ -51,6 +51,7 @@ void setup()
 
 void loop()
 {
+    // Check if data is availble
     if (Serial.available() > 0) {
         state = Serial.read();
     }
@@ -60,17 +61,17 @@ void loop()
         state = 0;
     } 
 
-    if (state == '2') {
+    else if (state == '2') {
         showOrange();
         state = 0;
     } 
 
-    if (state == '3') {
+    else if (state == '3') {
         showRed();
         state = 0;
     } 
 
-    if (state == '4') {
+    else if (state == '4') {
         cleanMode();
         state = 0;
     } 
